@@ -7,8 +7,8 @@ const MainPage = () => {
   const [showCart, setShowCart] = useState(false);
 
   return (
-    <div className="flex flex-col items-center ">
-      <div className="flex p-[20px] px-[40px] items-start justify-between wfull h-[460px] bg-[url('./assets/cover.png')] bg-cover ">
+    <div className="flex flex-col items-center w-full ">
+      <div className="flex p-[20px] px-[40px] items-start justify-between wfull h-[460px] bg-[url('./assets/cover.png')] bg-cover w-full ">
         <div className=" w-3/12 flex top-3 left-14 justify-center items-center gap-5">
           <img src={logo} alt="logo" className="" />
           <span className="text-3xl font-bold uppercase">Thu Pyn Ma Lr Pr</span>
