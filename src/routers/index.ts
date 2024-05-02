@@ -1,3 +1,3 @@
-import UserRouter from "./UserRouters";
+import UserRouter from "./UserRouter";
 
 export {UserRouter};
