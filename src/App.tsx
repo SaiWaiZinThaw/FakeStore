@@ -1,6 +1,7 @@
-import { Route, Routes, useRoutes } from "react-router-dom";
+import { Route } from "react-router-dom";
 import "./App.css";
 import { UserRouter } from "./routers";
+import { Routes, useRoutes } from "react-router";
 
 function App() {
   const UserRouting = useRoutes(UserRouter);
@@ -9,7 +10,7 @@ function App() {
     <>
       <div>
         <Routes>
-          <Route path="/*" element={UserRouting}/>
+          <Route path="/*" element={UserRouting} />
         </Routes>
       </div>
     </>
