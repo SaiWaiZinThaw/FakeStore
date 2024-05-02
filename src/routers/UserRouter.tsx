@@ -1,17 +1,16 @@
-import { RouteObject } from "react-router-dom"
-import { Home, ProductDetails } from "../pages"
-
+import { RouteObject } from "react-router-dom";
+import { Home, ProductDetails } from "../pages";
 
 const UserRouter: RouteObject[] = [
-    {
-        path: '/',
-        element: <Home/>
-    }, 
+  {
+    path: "/",
+    element: <Home />,
+  },
 
-    {
-        path: '/product/:id',
-        element: <ProductDetails/>
-    }
-]
+  {
+    path: "/product/:id",
+    element: <ProductDetails />,
+  },
+];
 
-export default UserRouter
+export default UserRouter;
