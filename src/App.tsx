@@ -1,11 +1,18 @@
+import { Route, Routes, useRoutes } from "react-router-dom";
+import { UserRouter } from "./routers";
 import "./App.css";
-import Layout from "./Layout";
 
 function App() {
+  const UserRouting = useRoutes(UserRouter);
+
   return (
-    <div className="w-full min-h-screen">
-      <Layout />
-    </div>
+    <>
+      <div>
+        <Routes>
+          <Route path="/*" element={UserRouting} />
+        </Routes>
+      </div>
+    </>
   );
 }
 
