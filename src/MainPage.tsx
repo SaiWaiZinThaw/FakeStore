@@ -2,9 +2,34 @@ import { useState } from "react";
 import logo from "./assets/logo.png";
 import Searchbox from "./components/Searchbox";
 import Cart from "./components/Cart";
+import { Home } from "./pages";
+import { Product } from "./types/types";
 
 const MainPage = () => {
   const [showCart, setShowCart] = useState(false);
+  const [search, setSearch] = useState("");
+  const [cartProducts, setCartProducts] = useState<Product[]>([]);
+
+  const createCartProduct = (product: Product) => {
+    const newProduct: Product = {
+      id: product.id,
+      title: product.title,
+      image: product.image,
+      price: product.price,
+      quantity: 1,
+      total: product.price,
+    };
+    if (!cartProducts.some((item) => item.id === product.id)) {
+      setCartProducts([...cartProducts, newProduct]);
+    }
+  };
+
+  const cartProductsUpdater = () => {
+    const updatedCartProducts = cartProducts.filter(
+      (product) => product.quantity > 0
+    );
+    setCartProducts(updatedCartProducts);
+  };
 
   return (
     <div className="flex flex-col items-center w-full ">
@@ -13,7 +38,7 @@ const MainPage = () => {
           <img src={logo} alt="logo" className="" />
           <span className="text-3xl font-bold uppercase">Thu Pyn Ma Lr Pr</span>
         </div>
-        <Searchbox />
+        <Searchbox search={search} setSearch={setSearch} />
         <div className="w-3/12 flex justify-end items-center">
           <button
             className=" text-white relative"
@@ -36,12 +61,23 @@ const MainPage = () => {
               />
             </svg>
             <span className="p-2 text-sm bg-red-600 text-white rounded-full w-[10px] h-[10px] flex items-center justify-center absolute top-0 right-0 -translate-y-[30%] translate-x-[50%] shadow-sm shaodw-red-700">
-              0
+              {cartProducts.length}
             </span>
           </button>
         </div>
-        <Cart showCart={showCart} setShowCart={setShowCart} />
       </div>
+      <Home
+        search={search}
+        createCartProduct={createCartProduct}
+        cartProducts={cartProducts}
+      />
+      <Cart
+        showCart={showCart}
+        setShowCart={setShowCart}
+        cartProductsUpdater={cartProductsUpdater}
+        setCartProducts={setCartProducts}
+        cartProducts={cartProducts}
+      />
     </div>
   );
 };

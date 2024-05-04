@@ -1,8 +1,14 @@
-const Searchbox = () => {
+const Searchbox = ({ search, setSearch }) => {
+  const searchHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
+  };
+
   return (
     <div className="w-6/12 flex items-center justify-center">
       <div className="searchbox justify-self-center flex justify-between bg-white bg-opacity-90 p-2 text-lg w-[400px] rounded-md border border-black ">
         <input
+          value={search}
+          onChange={searchHandler}
           type="text"
           className="px-2 w-11/12 border-r border-black outline-none bg-opacity-90 bg-white "
         />

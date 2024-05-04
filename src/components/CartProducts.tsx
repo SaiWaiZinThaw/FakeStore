@@ -1,5 +1,3 @@
-import "animate.css";
-
 interface Product {
   id: number;
   title: string;

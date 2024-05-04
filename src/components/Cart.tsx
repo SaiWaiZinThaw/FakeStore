@@ -1,7 +1,21 @@
 import { useEffect, useState } from "react";
 import CartProducts from "./CartProducts";
 
-const Cart = ({ showCart, setShowCart }) => {
+interface Product {
+  id: number;
+  title: string;
+  image: string;
+  price: number;
+  quantity: number;
+}
+
+const Cart = ({
+  showCart,
+  setShowCart,
+  cartProductsUpdater,
+  cartProducts,
+  setCartProducts,
+}: any) => {
   const [totalCost, setTotalCost] = useState(0);
 
   const cartClass =
@@ -11,14 +25,14 @@ const Cart = ({ showCart, setShowCart }) => {
     setShowCart(false);
   };
 
-  //   useEffect(() => {
-  //     let cost: number = 0;
-  //     props.cartProducts.forEach((product: Product) => {
-  //       cost += product.price * product.quantity;
-  //     });
-  //     setTotalCost(parseFloat(cost.toFixed(2)));
-  //     console.log(totalCost);
-  //   }, [props.cartProducts]);
+  useEffect(() => {
+    let cost: number = 0;
+    cartProducts.forEach((product: Product) => {
+      cost += product.price * product.quantity;
+    });
+    setTotalCost(parseFloat(cost.toFixed(2)));
+    console.log(totalCost);
+  }, [cartProducts]);
 
   return (
     <div
@@ -42,18 +56,23 @@ const Cart = ({ showCart, setShowCart }) => {
         </svg>
       </button>
 
-      {/* <CartProducts
-        cartProductsUpdater={props.cartProductsUpdater}
-        cartProducts={props.cartProducts}
-        setCartProducts={props.setCartProducts}
-      /> */}
+      <CartProducts
+        cartProductsUpdater={cartProductsUpdater}
+        cartProducts={cartProducts}
+        setCartProducts={setCartProducts}
+      />
       <div className=" w-full mt-auto flex flex-col gap-3  ">
         <div className="flex text-3xl border-t border-t-black  w-full justify-between p-4 ">
           <span>Total</span>
           <span className="font-BebasNeue">{totalCost}$</span>
         </div>
         <div className="flex w-full  justify-between">
-          <button className=" w-[120px] h-[50px] text-black rounded-md text-2xl bg-white active:scale-95">
+          <button
+            onClick={() => {
+              setCartProducts([]);
+            }}
+            className=" w-[120px] h-[50px] text-black rounded-md text-2xl bg-white active:scale-95"
+          >
             Clear
           </button>
           <button className=" w-[120px] h-[50px] rounded-md text-white bg-black active:scale-95 ">
