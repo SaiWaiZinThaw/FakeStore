@@ -1,4 +1,4 @@
-const Searchbox = ({ search, setSearch }) => {
+const Searchbox = ({ search, setSearch }: any) => {
   const searchHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
   };
