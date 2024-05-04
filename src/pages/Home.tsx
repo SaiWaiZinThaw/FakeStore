@@ -15,6 +15,7 @@ const Home = (props: any) => {
 
   if (isLoading) {
     return <div>Loading</div>;
+    return <div>Loading</div>;
   }
 
   return (
@@ -46,5 +47,9 @@ const Home = (props: any) => {
     </div>
   );
 };
+  );
+};
+
+export default Home;
 
 export default Home;

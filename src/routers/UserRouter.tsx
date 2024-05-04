@@ -25,3 +25,5 @@ const UserRouter: RouteObject[] = [
 ];
 
 export default UserRouter;
+
+export default UserRouter;
