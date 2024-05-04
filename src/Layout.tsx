@@ -1,5 +1,4 @@
 import { Outlet } from "react-router";
-import MainPage from "./MainPage";
 
 const Layout = () => {
   return (
