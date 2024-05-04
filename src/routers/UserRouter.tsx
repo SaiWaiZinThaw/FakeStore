@@ -1,5 +1,5 @@
 import { Navigate, RouteObject } from "react-router-dom";
-import { Home, ProductDetails } from "../pages";
+import { ProductDetails } from "../pages";
 import Layout from "../Layout";
 import MainPage from "../MainPage";
 
@@ -23,7 +23,5 @@ const UserRouter: RouteObject[] = [
     ],
   },
 ];
-
-export default UserRouter;
 
 export default UserRouter;
