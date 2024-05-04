@@ -7,11 +7,7 @@ function App() {
 
   return (
     <>
-      <div>
-        <Routes>
-          <Route path="/*" element={UserRouting} />
-        </Routes>
-      </div>
+      <div></div>
     </>
   );
 }
